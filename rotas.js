@@ -7,17 +7,17 @@ const rotas = new Router();
 
 rotas.route('/fornecedores')
     .get(controleFornecedores.getFornecedores)
-    .post(controleFornecedores.addFornecedores)
-    .put(controleFornecedores.updateFornecedores)
+    .post(controleFornecedores.addFornecedor)
+    .put(controleFornecedores.updateFornecedor)
 
 rotas.route('/fornecedores/:codigo')
     .delete(controleFornecedores.deleteFornecedor)
     .get(controleFornecedores.getFornecedorPorCodigo)
 
-    rotas.route('/produtos')
+rotas.route('/produtos')
     .get(controleProdutos.getProdutos)
-    .post(controleProdutos.addProdutos)
-    .put(controleProdutos.updateProdutos)
+    .post(controleProdutos.addProduto)
+    .put(controleProdutos.updateProduto)
 
 rotas.route('/produtos/:codigo')
     .delete(controleProdutos.deleteProduto)

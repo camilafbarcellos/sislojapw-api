@@ -19,7 +19,7 @@ const getFornecedores = (request, response) => {
 
 // método para adicionar novos fornecedores na tabela que retorna
 // um array que irá conter os valores dos parâmetros
-const addFornecedores = (request, response) => {
+const addFornecedor = (request, response) => {
     const { nome, cnpj, setor } = request.body;
     pool.query(`INSERT INTO fornecedores (nome, cnpj, setor) 
     VALUES ($1, $2, $3) RETURNING codigo, nome, cnpj, setor`,
@@ -40,7 +40,7 @@ const addFornecedores = (request, response) => {
 
 // método para alterar fornecedores na tabela com base em codigo que
 // retorna um array que irá conter os valores dos parâmetros
-const updateFornecedores = (request, response) => {
+const updateFornecedor = (request, response) => {
     const { nome, cnpj, setor, codigo } = request.body;
     pool.query(`UPDATE fornecedores SET nome=$1, cnpj=$2, setor=$3  
     WHERE codigo=$4 RETURNING codigo, nome, cnpj, setor`,
@@ -95,4 +95,4 @@ const getFornecedorPorCodigo = (request, response) => {
         })
 }
 
-module.exports = { getFornecedores, addFornecedores, updateFornecedores, deleteFornecedor, getFornecedorPorCodigo }
+module.exports = { getFornecedores, addFornecedor, updateFornecedor, deleteFornecedor, getFornecedorPorCodigo }
